@@ -9,7 +9,7 @@
 <body>
     <h1>Calculator</h1>
     <form action="/result" method="POST">
-        <input type="text" id="expression" name="expression" placeholder="Enter Expression" required><br><br>
+        <input type="text" id="expression" name="expression" placeholder="Enter Expression" readonly required><br><br>
         {% for i in range(1,10) %}
         <button type="button" id="b{{i}}" value="{{i}}">{{i}}</button>
             {% if i%3==0 %}
@@ -25,16 +25,13 @@
     </form>
     <script>
         let box = document.getElementById("expression");
-        for (let i = 1; i < 10; i++) {
+        for (let i = 0; i < 10; i++) {
             document.getElementById("b" + i).onclick = function (event) {
                 console.log(event.target.value);
                 box.value += event.target.value;
             };
         }
-        document.getElementById("b0").onclick = function (event) {
-            console.log(event.target.value);
-            box.value += event.target.value;
-        };
+        operatorss=[]
         document.getElementById("plus").onclick = function (event) {
             console.log(event.target.value);
             box.value += event.target.value;
