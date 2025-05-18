@@ -19,15 +19,15 @@ def result():
             if exp[0].isdigit() and exp[1].isdigit():
                 num1 = float(exp[0])
                 num2 = float(exp[1])
-                if (op=='+'):
-                    res=num1 + num2
-                elif (op=='-'):
-                    res=num1 - num2
-                elif (op=='*'):
-                    res=num1 * num2
-                elif (op=='/'):
+                if (op == '+'):
+                    res = num1 + num2
+                elif (op == '-'):
+                    res = num1 - num2
+                elif (op == '*'):
+                    res = num1 * num2
+                elif (op == '/'):
                     res = num1 / num2
-                return render_template("calculator.html",res=res)
+                return render_template("calculator.html", res=res)
             else:
                 return "<h1>Invalid Expression</h1>"
 
