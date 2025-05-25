@@ -27,12 +27,18 @@ def result():
                     res = num1 * num2
                 elif (op == '/'):
                     res = num1 / num2
+                with open("history.csv","a")as f:
+                    f.write(f"{expression}={res}\n")
                 return render_template("calculator.html", res=res)
             else:
                 return "<h1>Invalid Expression</h1>"
 
     return "<h1>Wrong input</h1>"
-
+@app.route("/history", methods=["GET"])
+def history():
+    with open("history.csv","r")as f:
+        history=f.readlines()
+        return render_template("calculator.html",history=history)
 
 if __name__ == "__main__":
     app.run(debug=True)
