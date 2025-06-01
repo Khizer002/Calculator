@@ -27,8 +27,9 @@ def result():
                     res = num1 * num2
                 elif (op == '/'):
                     res = num1 / num2
-                with open("history.csv","a")as f:
-                    f.write(f"{expression}={res}\n")
+                with open("history.csv","a")as f: 
+                    lines=f"{exp[0]},{op},{exp[1]},=,{res}\n" 
+                    f.write(lines) 
                 return render_template("calculator.html", res=res)
             else:
                 return "<h1>Invalid Expression</h1>"
